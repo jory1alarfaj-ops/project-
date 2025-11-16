@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - ACL Collection</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- ===== NAVIGATION BAR ===== -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">🏎️ ACL Collection</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="brandsDropdown" role="button" data-bs-toggle="dropdown">
+                            Brands
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="brandsDropdown">
+                            <li><a class="dropdown-item" href="porsche.html">Porsche</a></li>
+                            <li><a class="dropdown-item" href="mercedes.html">Mercedes-Benz</a></li>
+                            <li><a class="dropdown-item" href="lamborghini.html">Lamborghini</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="cart.html">
+                            🛒 Cart
+                            <span id="cart-badge" class="cart-badge" style="display: none;">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>Shopping Cart</h1>
+            <p>Review and manage your selected vehicles</p>
+        </div>
+    </section>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="container my-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="cart-container">
+                    <h3 class="mb-4">Your Items</h3>
+                    <div id="cart-items-container">
+                        <!-- Cart items will be inserted here by JavaScript -->
+                    </div>
+                    <div id="empty-cart-message" class="alert alert-info text-center" style="display: none;">
+                        <p>Your cart is empty. <a href="index.html">Continue shopping</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CART SUMMARY -->
+            <div class="col-lg-4">
+                <div class="cart-summary">
+                    <h4 class="mb-4">Order Summary</h4>
+                    
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span>Shipping:</span>
+                        <span id="shipping">$0.00</span>
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span>Tax (10%):</span>
+                        <span id="tax">$0.00</span>
+                    </div>
+                    
+                    <div class="summary-row summary-total">
+                        <span>Total:</span>
+                        <span id="total">$0.00</span>
+                    </div>
+
+                    <button class="btn btn-primary-custom w-100 mt-4" onclick="checkout()">Proceed to Checkout</button>
+                    <a href="index.html" class="btn btn-outline-secondary w-100 mt-2">Continue Shopping</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>About ACL Collection</h5>
+                    <p>Your premier destination for luxury and performance vehicles from the world's finest manufacturers.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="cart.html">Shopping Cart</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Info</h5>
+                    <p>
+                        Email: info@aclcollection.com<br>
+                        Phone: +1 (555) 123-4567<br>
+                        Address: 123 Luxury Lane, Premium City
+                    </p>
+                </div>
+            </div>
+            <hr style="border-color: #f2c230;">
+            <div class="text-center">
+                <p>&copy; 2024 ACL Collection. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Cart JS -->
+    <script src="js/cart.js"></script>
+    
+    <!-- Cart Page Script -->
+    <script>
+        function displayCart() {
+            const container = document.getElementById('cart-items-container');
+            const emptyMessage = document.getElementById('empty-cart-message');
+            
+            if (ShoppingCart.items.length === 0) {
+                container.innerHTML = '';
+                emptyMessage.style.display = 'block';
+                updateSummary();
+                return;
+            }
+            
+            emptyMessage.style.display = 'none';
+            container.innerHTML = '';
+            
+            ShoppingCart.items.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                const itemHTML = `
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-price">$${item.price.toLocaleString()}</div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <div>
+                                <label for="qty-${item.id}">Qty:</label>
+                                <select id="qty-${item.id}" class="form-select form-select-sm" onchange="updateItemQuantity('${item.id}', this.value)">
+                                    <option value="1" ${item.quantity === 1 ? 'selected' : ''}>1</option>
+                                    <option value="2" ${item.quantity === 2 ? 'selected' : ''}>2</option>
+                                    <option value="3" ${item.quantity === 3 ? 'selected' : ''}>3</option>
+                                    <option value="4" ${item.quantity === 4 ? 'selected' : ''}>4</option>
+                                    <option value="5" ${item.quantity === 5 ? 'selected' : ''}>5</option>
+                                </select>
+                            </div>
+                            <div style="min-width: 100px; text-align: right;">
+                                <div class="fw-bold">$${itemTotal.toLocaleString()}</div>
+                            </div>
+                            <button class="btn btn-sm btn-danger" onclick="removeFromCart('${item.id}')">Remove</button>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += itemHTML;
+            });
+            
+            updateSummary();
+        }
+        
+        function updateItemQuantity(id, quantity) {
+            ShoppingCart.updateQuantity(id, quantity);
+            displayCart();
+        }
+        
+        function removeFromCart(id) {
+            ShoppingCart.removeItem(id);
+            displayCart();
+        }
+        
+        function updateSummary() {
+            const subtotal = ShoppingCart.getTotalPrice();
+            const shipping = ShoppingCart.items.length > 0 ? 500 : 0;
+            const tax = subtotal * 0.1;
+            const total = subtotal + shipping + tax;
+            
+            document.getElementById('subtotal').textContent = '$' + subtotal.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('shipping').textContent = '$' + shipping.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('tax').textContent = '$' + tax.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            document.getElementById('total').textContent = '$' + total.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        }
+        
+        function checkout() {
+            if (ShoppingCart.items.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            
+            const total = ShoppingCart.getTotalPrice() + (ShoppingCart.items.length > 0 ? 500 : 0) + (ShoppingCart.getTotalPrice() * 0.1);
+            alert(`Order Total: $${total.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}\n\nThank you for your purchase!`);
+            ShoppingCart.clearCart();
+            displayCart();
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            displayCart();
+        });
+    </script>
+</body>
+</html>

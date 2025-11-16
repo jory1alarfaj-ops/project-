@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACL Car Catalog - Home</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- ===== NAVIGATION BAR ===== -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">🏎️ ACL Collection</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="brandsDropdown" role="button" data-bs-toggle="dropdown">
+                            Brands
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="brandsDropdown">
+                            <li><a class="dropdown-item" href="porsche.html">Porsche</a></li>
+                            <li><a class="dropdown-item" href="mercedes.html">Mercedes-Benz</a></li>
+                            <li><a class="dropdown-item" href="lamborghini.html">Lamborghini</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html">
+                            🛒 Cart
+                            <span id="cart-badge" class="cart-badge" style="display: none;">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>Welcome to ACL Collection</h1>
+            <p>Discover the world's finest luxury and performance vehicles</p>
+        </div>
+    </section>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="container my-5">
+        <!-- PORSCHE SECTION -->
+        <section class="mb-5">
+            <h2 class="section-title">Porsche</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="car-card">
+                        <img src="../src/images/porshe/718/boxterfront.avif" alt="Porsche 718 Boxster">
+                        <div class="car-card-body">
+                            <h5 class="car-card-title">718 Boxster</h5>
+                            <p class="car-card-price">271,125</p>
+                            <p class="car-card-description">Lightweight sports car with exceptional handling and performance.</p>
+                            <form onsubmit="addToCart(event)" data-car-id="porsche-718" data-car-name="Porsche 718 Boxster" data-car-price="271,125">
+                                <div class="quantity-selector">
+                                    <label for="qty-718">Quantity:</label>
+                                    <select id="qty-718" required>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-add-cart w-100">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="car-card">
+                        <img src="../src/images/porshe/911/carrera-front.avif" alt="Porsche 911 Carrera">
+                        <div class="car-card-body">
+                            <h5 class="car-card-title">911 Carrera</h5>
+                            <p class="car-card-price">610,000</p>
+                            <p class="car-card-description">Iconic sports car with legendary performance and style.</p>
+                            <form onsubmit="addToCart(event)" data-car-id="porsche-911" data-car-name="Porsche 911 Carrera" data-car-price="610,000">
+                                <div class="quantity-selector">
+                                    <label for="qty-911">Quantity:</label>
+                                    <select id="qty-911" required>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-add-cart w-100">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="car-card">
+                        <img src="../src/images/porshe/Taycan/taycanfront.avif" alt="Porsche Taycan">
+                        <div class="car-card-body">
+                            <h5 class="car-card-title">Taycan</h5>
+                            <p class="car-card-price">440,000</p>
+                            <p class="car-card-description">Revolutionary electric sports sedan with stunning performance.</p>
+                            <form onsubmit="addToCart(event)" data-car-id="porsche-taycan" data-car-name="Porsche Taycan" data-car-price="440,000">
+                                <div class="quantity-selector">
+                                    <label for="qty-taycan">Quantity:</label>
+                                    <select id="qty-taycan" required>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-add-cart w-100">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="car-card">
+                        <img src="../src/images/porshe/911/GT3front.jpeg" alt="Porsche 911 GT3">
+                        <div class="car-card-body">
+                            <h5 class="car-card-title">911 GT3</h5>
+                            <p class="car-card-price">900,000</p>
+                            <p class="car-card-description">Track-focused performance with naturally aspirated engine.</p>
+                            <form onsubmit="addToCart(event)" data-car-id="porsche-911-gt3" data-car-name="Porsche 911 GT3" data-car-price="900,000">
+                                <div class="quantity-selector">
+                                    <label for="qty-911-gt3">Quantity:</label>
+                                    <select id="qty-911-gt3" required>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-add-cart w-100">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="car-card">
+                        <img src="../src/images/porshe/panemera/panamerafront.avif" alt="Porsche Panamera">
+                        <div class="car-card-body">
+                            <h5 class="car-card-title">Panamera</h5>
+                            <p class="car-card-price">480,000</p>
+                            <p class="car-card-description">Luxury sports sedan with exceptional performance.</p>
+                            <form onsubmit="addToCart(event)" data-car-id="porsche-panamera" data-car-name="Porsche Panamera" data-car-price="480,000">
+                                <div class="quantity-selector">
+                                    <label for="qty-panamera">Quantity:</label>
+                                    <select id="qty-panamera" required>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-add-cart w-100">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="car-card">
+                        <img src="../src/images/porshe/macan/macanFront.avif" alt="Porsche Macan">
+                        <div class="car-card-body">
+                            <h5 class="car-card-title">Macan</h5>
+                            <p class="car-card-price">280,000</p>
+                            <p class="car-card-description">Compact luxury SUV with sports car dynamics.</p>
+                            <form onsubmit="addToCart(event)" data-car-id="porsche-macan" data-car-name="Porsche Macan" data-car-price="280,000">
+                                <div class="quantity-selector">
+                                    <label for="qty-macan">Quantity:</label>
+                                    <select id="qty-macan" required>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-add-cart w-100">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MERCEDES-BENZ SECTION -->
+        <section class="mb-5">
+            <h2 class="section-title">Mercedes-Benz</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="car-card">
+                        <img src="../src/images/mercedes/hatchbacks/a-classHatchback.png.avif" alt="Mercedes A-Class Hatchback">
+                        <div class="car-card-body">
+                            <h5 class="car-card-title">A-Class Hatchback</h5>
+                            <p class="car-card-price">150,000</p>
+                            <p class="car-card-description">Compact luxury hatchback with modern design.</p>
+                            <form onsubmit="addToCart(event)" data-car-id="mercedes-a-class" data-car-name="Mercedes A-Class Hatchback" data-car-price="150,000">
+                                <div class="quantity-selector">
+                                    <label for="qty-a-class">Quantity:</label>
+                                    <select id="qty-a-class" required>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-add-cart w-100">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="car-card">
+                        <img src="../src/images/mercedes/sedans/a-Class-sedan.png.avif" alt="Mercedes A-Class Sedan">
+                        <div class="car-card-body">
+                            <h5 class="car-card-title">A-Class Sedan</h5>
+                            <p class="car-card-price">160,000</p>
+                            <p class="car-card-description">Premium compact sedan with luxury features.</p>
+                            <form onsubmit="addToCart(event)" data-car-id="mercedes-a-sedan" data-car-name="Mercedes A-Class Sedan" data-car-price="160,000">
+                                <div class="quantity-selector">
+                                    <label for="qty-a-sedan">Quantity:</label>
+                                    <select id="qty-a-sedan" required>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-add-cart w-100">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="car-card">
+                        <img src="../src/images/mercedes/sedans/c-Class-sedan.avif" alt="Mercedes C-Class Sedan">
+                        <div class="car-card-body">
+                            <h5 class="car-card-title">C-Class Sedan</h5>
+                            <p class="car-card-price">220,000</p>
+                            <p class="car-card-description">Premium sedan combining elegance with performance.</p>
+                            <form onsubmit="addToCart(event)" data-car-id="mercedes-c-class" data-car-name="Mercedes C-Class Sedan" data-car-price="220,000">
+                                <div class="quantity-selector">
+                                    <label for="qty-c-class">Quantity:</label>
+                                    <select id="qty-c-class" required>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-add-cart w-100">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="car-card">
+                        <img src="../src/images/mercedes/sedans/e_class_sedan.png.avif" alt="Mercedes E-Class Sedan">
+                        <div class="car-card-body">
+                            <h5 class="car-card-title">E-Class Sedan</h5>
+                            <p class="car-card-price">320,000</p>
+                            <p class="car-card-description">Executive sedan with superior comfort and technology.</p>
+                            <form onsubmit="addToCart(event)" data-car-id="mercedes-e-class" data-car-name="Mercedes E-Class Sedan" data-car-price="320,000">
+                                <div class="quantity-selector">
+                                    <label for="qty-e-class">Quantity:</label>
+                                    <select id="qty-e-class" required>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-add-cart w-100">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="car-card">
+                        <img src="../src/images/mercedes/SUVs/GLE.png.avif" alt="Mercedes GLE SUV">
+                        <div class="car-card-body">
+                            <h5 class="car-card-title">GLE SUV</h5>
+                            <p class="car-card-price">380,000</p>
+                            <p class="car-card-description">Luxury SUV with commanding presence and advanced features.</p>
+                            <form onsubmit="addToCart(event)" data-car-id="mercedes-gle" data-car-name="Mercedes GLE SUV" data-car-price="380,000">
+                                <div class="quantity-selector">
+                                    <label for="qty-gle">Quantity:</label>
+                                    <select id="qty-gle" required>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-add-cart w-100">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="car-card">
+                        <img src="../src/images/mercedes/SUVs/GLS.jpg.avif" alt="Mercedes GLS SUV">
+                        <div class="car-card-body">
+                            <h5 class="car-card-title">GLS SUV</h5>
+                            <p class="car-card-price">520,000</p>
+                            <p class="car-card-description">Three-row luxury SUV with exceptional comfort.</p>
+                            <form onsubmit="addToCart(event)" data-car-id="mercedes-gls" data-car-name="Mercedes GLS SUV" data-car-price="520,000">
+                                <div class="quantity-selector">
+                                    <label for="qty-gls">Quantity:</label>
+                                    <select id="qty-gls" required>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-add-cart w-100">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LAMBORGHINI SECTION -->
+        <section class="mb-5">
+            <h2 class="section-title">Lamborghini</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="car-card">
+                        <img src="../src/images/lamborghini/huracan/huracanevospyder.png.webp" alt="Lamborghini Huracán">
+                        <div class="car-card-body">
+                            <h5 class="car-card-title">Huracán</h5>
+                            <p class="car-card-price"> 888,750</p>
+                            <p class="car-card-description">Supercar with breathtaking speed and Italian craftsmanship.</p>
+                            <form onsubmit="addToCart(event)" data-car-id="lamborghini-hurcan" data-car-name="Lamborghini Huracán" data-car-price="888,750">
+                                <div class="quantity-selector">
+                                    <label for="qty-hurcan">Quantity:</label>
+                                    <select id="qty-hurcan" required>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-add-cart w-100">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="car-card">
+                        <img src="../src/images/lamborghini/Reulto/revuelto.png.webp" alt="Lamborghini Revuelto">
+                        <div class="car-card-body">
+                            <h5 class="car-card-title">Revuelto</h5>
+                            <p class="car-card-price">2,281,342</p>
+                            <p class="car-card-description">Hybrid grand tourer combining luxury with cutting-edge performance.</p>
+                            <form onsubmit="addToCart(event)" data-car-id="lamborghini-revuelto" data-car-name="Lamborghini Revuelto" data-car-price="2,281,342">
+                                <div class="quantity-selector">
+                                    <label for="qty-revuelto">Quantity:</label>
+                                    <select id="qty-revuelto" required>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-add-cart w-100">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="car-card">
+                        <img src="../src/images/lamborghini/URUS/UrusSE.png.webp" alt="Lamborghini URUS">
+                        <div class="car-card-body">
+                            <h5 class="car-card-title">URUS SUV</h5>
+                            <p class="car-card-price">881,250</p>
+                            <p class="car-card-description">Super SUV with unmatched power and luxury presence.</p>
+                            <form onsubmit="addToCart(event)" data-car-id="lamborghini-urus" data-car-name="Lamborghini URUS SUV" data-car-price="881,250">
+                                <div class="quantity-selector">
+                                    <label for="qty-urus">Quantity:</label>
+                                    <select id="qty-urus" required>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-add-cart w-100">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="car-card">
+                        <img src="../src/images/lamborghini/temerario/TEMERARIO.jpg.webp" alt="Lamborghini Temerario">
+                        <div class="car-card-body">
+                            <h5 class="car-card-title">Temerario</h5>
+                            <p class="car-card-price">1,218,750</p>
+                            <p class="car-card-description">Next-generation supercar with hybrid technology.</p>
+                            <form onsubmit="addToCart(event)" data-car-id="lamborghini-temerario" data-car-name="Lamborghini Temerario" data-car-price="1,218,750">
+                                <div class="quantity-selector">
+                                    <label for="qty-temerario">Quantity:</label>
+                                    <select id="qty-temerario" required>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-add-cart w-100">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="car-card">
+                        <img src="../src/images/lamborghini/URUS/UrusSE.png.avif" alt="Lamborghini URUS SE">
+                        <div class="car-card-body">
+                            <h5 class="car-card-title">URUS SE</h5>
+                            <p class="car-card-price">967,500</p>
+                            <p class="car-card-description">Hybrid URUS with electric technology.</p>
+                            <form onsubmit="addToCart(event)" data-car-id="lamborghini-urus-se" data-car-name="Lamborghini URUS SE" data-car-price="967,500">
+                                <div class="quantity-selector">
+                                    <label for="qty-urus-se">Quantity:</label>
+                                    <select id="qty-urus-se" required>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-add-cart w-100">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="car-card">
+                        <img src="../src/images/lamborghini/URUS/UrusPerformante.png.webp" alt="Lamborghini URUS Performante">
+                        <div class="car-card-body">
+                            <h5 class="car-card-title">URUS Performante</h5>
+                            <p class="car-card-price">1,023,750</p>
+                            <p class="car-card-description">High-performance URUS variant.</p>
+                            <form onsubmit="addToCart(event)" data-car-id="lamborghini-urus-perf" data-car-name="Lamborghini URUS Performante" data-car-price="1,023,750">
+                                <div class="quantity-selector">
+                                    <label for="qty-urus-perf">Quantity:</label>
+                                    <select id="qty-urus-perf" required>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-add-cart w-100">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>About ACL Collection</h5>
+                    <p>Your premier destination for luxury and performance vehicles from the world's finest manufacturers.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="cart.html">Shopping Cart</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Info</h5>
+                    <p>
+                        Email: info@aclcollection.com<br>
+                        Phone: +1 (555) 123-4567<br>
+                        Address: 123 Luxury Lane, Premium City
+                    </p>
+                </div>
+            </div>
+            <hr style="border-color: #f2c230;">
+            <div class="text-center">
+                <p>&copy; 2024 ACL Collection. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Cart JS -->
+    <script src="js/cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+/* ===== Global Styles ===== */
+:root {
+  --primary-color: #0d3141;
+  --secondary-color: #017f8d;
+  --highlight-color: #f2c230;
+  --accent-color: #f21a05;
+  --white: #ffffff;
+  --light-gray: #f8f9fa;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--primary-color);
+  background-color: var(--light-gray);
+  line-height: 1.6;
+}
+
+/* ===== Header & Navigation ===== */
+.navbar {
+  background-color: var(--primary-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--highlight-color) !important;
+}
+
+.navbar-nav .nav-link {
+  color: var(--white) !important;
+  margin-left: 1rem;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--highlight-color) !important;
+}
+
+.cart-badge {
+  background-color: var(--accent-color);
+  color: var(--white);
+  border-radius: 50%;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  margin-left: 0.5rem;
+}
+
+/* ===== Hero Section ===== */
+.hero-section {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--white);
+  padding: 4rem 0;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.hero-section p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+}
+
+/* ===== Car Cards ===== */
+.car-card {
+  background-color: var(--white);
+  border: 2px solid var(--secondary-color);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.car-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.car-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 3px solid var(--highlight-color);
+}
+
+.car-card-body {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.car-card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.car-card-price {
+  font-size: 1.25rem;
+  color: var(--accent-color);
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.car-card-description {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+/* ===== Buttons ===== */
+.btn-primary-custom {
+  background-color: var(--secondary-color);
+  border: none;
+  color: var(--white);
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.btn-primary-custom:hover {
+  background-color: var(--primary-color);
+  color: var(--highlight-color);
+}
+
+.btn-add-cart {
+  background-color: var(--highlight-color);
+  border: none;
+  color: var(--primary-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+}
+
+.btn-add-cart:hover {
+  background-color: #e0b820;
+}
+
+/* ===== Quantity Selector ===== */
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.quantity-selector select {
+  padding: 0.5rem;
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+  color: var(--primary-color);
+}
+
+/* ===== Footer ===== */
+footer {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 2rem 0;
+  margin-top: 3rem;
+  border-top: 3px solid var(--accent-color);
+}
+
+footer h5 {
+  color: var(--highlight-color);
+  margin-bottom: 1rem;
+}
+
+footer a {
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--highlight-color);
+}
+
+/* ===== Cart Page ===== */
+.cart-container {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+.cart-item-info {
+  flex-grow: 1;
+}
+
+.cart-item-name {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.cart-item-price {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.cart-summary {
+  background-color: var(--light-gray);
+  padding: 2rem;
+  border-radius: 8px;
+  margin-top: 2rem;
+  border: 2px solid var(--secondary-color);
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.summary-total {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  border-top: 2px solid var(--secondary-color);
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+/* ===== Forms ===== */
+.form-control {
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+  padding: 0.75rem;
+  color: var(--primary-color);
+}
+
+.form-control:focus {
+  border-color: var(--highlight-color);
+  box-shadow: 0 0 0 0.2rem rgba(242, 194, 48, 0.25);
+}
+
+.form-label {
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+/* ===== Section Titles ===== */
+.section-title {
+  color: var(--primary-color);
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 2rem 0 1rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid var(--accent-color);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .car-card img {
+    height: 200px;
+  }
+
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
